@@ -1,0 +1,1106 @@
+{
+  "name": "oma_budgets",
+  "title": "Budgets",
+  "x-ms-permission": "read-write",
+  "x-ms-capabilities": {
+    "sortRestrictions": {
+      "sortable": true,
+      "unsortableProperties": [
+        "_createdby_value",
+        "_createdby_type",
+        "_createdonbehalfby_value",
+        "_createdonbehalfby_type",
+        "_modifiedby_value",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_value",
+        "_modifiedonbehalfby_type",
+        "_oma_category_value",
+        "_oma_category_type",
+        "_oma_userprofile_value",
+        "_oma_userprofile_type",
+        "_ownerid_type",
+        "_owningbusinessunit_value",
+        "_owningbusinessunit_type",
+        "_transactioncurrencyid_value",
+        "_transactioncurrencyid_type",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "filterRestrictions": {
+      "filterable": true,
+      "nonFilterableProperties": [
+        "_createdby_type",
+        "_createdonbehalfby_type",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_type",
+        "_oma_category_type",
+        "_oma_userprofile_type",
+        "_ownerid_type",
+        "_owningbusinessunit_type",
+        "_transactioncurrencyid_type",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "isOnlyServerPagable": true,
+    "filterFunctionSupport": [
+      "eq",
+      "ne",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "and",
+      "or",
+      "contains",
+      "startswith",
+      "endswith",
+      "not",
+      "null"
+    ]
+  },
+  "schema": {
+    "type": "array",
+    "locale": 1033,
+    "items": {
+      "type": "object",
+      "properties": {
+        "oma_budgetid": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for entity instances",
+          "title": "Budget",
+          "format": "guid",
+          "x-ms-keyOrder": 0,
+          "x-ms-keyType": "primary",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "oma_budgetamount": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": 0,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Budget Amount",
+          "format": "currency",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "oma_budgetamount_base": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": -922337203685477,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Value of the Budget Amount in base currency.",
+          "title": "Budget Amount (Base)",
+          "format": "currency",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "oma_budgetname": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 200,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Budget Name",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "createdon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the record was created.",
+          "title": "Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "exchangerate": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 100000000000,
+          "minimum": 1e-10,
+          "ConvertDecimal": true,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Exchange rate for the currency associated with the entity with respect to the base currency.",
+          "title": "Exchange Rate",
+          "format": "double",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "importsequencenumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Sequence number of the import that created this record.",
+          "title": "Import Sequence Number",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "modifiedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the record was modified.",
+          "title": "Modified On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "oma_month": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 12,
+          "minimum": 1,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Month",
+          "format": "int32",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "overriddencreatedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time that the record was migrated.",
+          "title": "Record Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_spentamount": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": 0,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Spent Amount",
+          "format": "currency",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_spentamount_base": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": -922337203685477,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Value of the Spent Amount in base currency.",
+          "title": "Spent Amount (Base)",
+          "format": "currency",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "statuscode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the Budget",
+          "title": "Status Reason Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "e12cd6e8-82de-4ac7-ade7-a6ce1cec2a99",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "statecode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the Budget",
+          "title": "Status Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "bd84a69c-6db6-4565-861a-09e9dbdebfa1",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "timezoneruleversionnumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -1,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "For internal use only.",
+          "title": "Time Zone Rule Version Number",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "utcconversiontimezonecode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -1,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Time zone code that was in use when the record was created.",
+          "title": "UTC Conversion Time Zone Code",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "versionnumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 9223372036854776000,
+          "minimum": -9223372036854776000,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Version Number",
+          "title": "Version Number",
+          "format": "int64",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "oma_year": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2100,
+          "minimum": 2000,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Year",
+          "format": "int32",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "_oma_category_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Category",
+          "format": "guid",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "_oma_category_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Category Type",
+          "format": "string",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "oma_categories"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "oma_categories"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "oma_Category"
+          ]
+        },
+        "_createdby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the record.",
+          "title": "Created By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_createdonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the record.",
+          "title": "Created By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_createdonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the record.",
+          "title": "Created By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdonbehalfby"
+          ]
+        },
+        "_createdby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the record.",
+          "title": "Created By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdby"
+          ]
+        },
+        "_transactioncurrencyid_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the currency associated with the entity.",
+          "title": "Currency",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_transactioncurrencyid_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the currency associated with the entity.",
+          "title": "Currency Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "transactioncurrencies"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "transactioncurrencies"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "transactioncurrencyid"
+          ]
+        },
+        "_modifiedby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who modified the record.",
+          "title": "Modified By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_modifiedonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who modified the record.",
+          "title": "Modified By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_modifiedonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who modified the record.",
+          "title": "Modified By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedonbehalfby"
+          ]
+        },
+        "_modifiedby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who modified the record.",
+          "title": "Modified By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedby"
+          ]
+        },
+        "_ownerid_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Owner Id",
+          "title": "Owner",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_ownerid_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Owner Id",
+          "title": "Owner Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "enum": [
+            "",
+            "systemusers",
+            "teams"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [],
+          "x-ms-crm-navigationpropertynames ": []
+        },
+        "_owningbusinessunit_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for the business unit that owns the record",
+          "title": "Owning Business Unit",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_owningbusinessunit_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for the business unit that owns the record",
+          "title": "Owning Business Unit Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "businessunits"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "businessunits"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "owningbusinessunit"
+          ]
+        },
+        "_statecode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the Budget",
+          "title": "Status",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "bd84a69c-6db6-4565-861a-09e9dbdebfa1",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            0,
+            1
+          ]
+        },
+        "_statuscode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the Budget",
+          "title": "Status Reason",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "e12cd6e8-82de-4ac7-ade7-a6ce1cec2a99",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            1,
+            2
+          ]
+        },
+        "_oma_userprofile_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "User Profile",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_oma_userprofile_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "User Profile Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "oma_userprofiles"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "oma_userprofiles"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "oma_UserProfile"
+          ]
+        },
+        "{Attachments}": {
+          "title": "Attachments",
+          "description": "Never returns any data. Use Attachment endpoints to access item attachments.",
+          "x-ms-permission": "read-write",
+          "targetEntity": "attachments",
+          "format": "x-ms-containedMediaEntity",
+          "x-ms-visibility": "internal",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "format": "x-ms-mediaEntity",
+            "x-ms-sort": "none",
+            "properties": {
+              "@odata.type": {
+                "title": "@odata.type",
+                "x-ms-visibility": "internal",
+                "type": "string",
+                "x-ms-permission": "read-write",
+                "default": "#Object"
+              },
+              "Id": {
+                "title": "Id",
+                "type": "string",
+                "x-ms-keyType": "primary",
+                "x-ms-keyOrder": 1,
+                "x-ms-permission": "read-only"
+              },
+              "AbsoluteUri": {
+                "title": "AbsoluteUri",
+                "type": "string",
+                "format": "uri",
+                "x-ms-permission": "read-only"
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "type": "string",
+                "x-ms-permission": "read-only"
+              }
+            }
+          },
+          "@odata.type": "#Collection(Object)"
+        }
+      },
+      "required": [],
+      "x-ms-displayFormat": {
+        "propertiesCompactDisplayOrder": [
+          "createdon",
+          "oma_budgetname",
+          "_ownerid_value",
+          "statuscode"
+        ],
+        "propertiesDisplayOrder": [],
+        "propertiesTabularDisplayOrder": [
+          "createdon",
+          "oma_budgetamount",
+          "oma_budgetname",
+          "_oma_category_value",
+          "oma_month",
+          "oma_spentamount",
+          "_oma_userprofile_value",
+          "oma_year"
+        ]
+      },
+      "x-ms-relationships": {}
+    },
+    "logicalname": "oma_budget"
+  },
+  "referencedEntities": {},
+  "x-ms-connection-version": ""
+}

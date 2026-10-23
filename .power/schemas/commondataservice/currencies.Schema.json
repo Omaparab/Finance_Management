@@ -1,0 +1,907 @@
+{
+  "name": "transactioncurrencies",
+  "title": "Currencies",
+  "x-ms-permission": "read-write",
+  "x-ms-capabilities": {
+    "sortRestrictions": {
+      "sortable": true,
+      "unsortableProperties": [
+        "_createdby_value",
+        "_createdby_type",
+        "_createdonbehalfby_value",
+        "_createdonbehalfby_type",
+        "_modifiedby_value",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_value",
+        "_modifiedonbehalfby_type",
+        "_organizationid_value",
+        "_organizationid_type",
+        "currencytype",
+        "_currencytype_label",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "filterRestrictions": {
+      "filterable": true,
+      "nonFilterableProperties": [
+        "_createdby_type",
+        "_createdonbehalfby_type",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_type",
+        "_organizationid_type",
+        "_currencytype_label",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "isOnlyServerPagable": true,
+    "filterFunctionSupport": [
+      "eq",
+      "ne",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "and",
+      "or",
+      "contains",
+      "startswith",
+      "endswith",
+      "not",
+      "null"
+    ]
+  },
+  "schema": {
+    "type": "array",
+    "locale": 1033,
+    "items": {
+      "type": "object",
+      "properties": {
+        "createdon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the transaction currency was created.",
+          "title": "Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "isocurrencycode": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 5,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "ISO currency code for the transaction currency.",
+          "title": "Currency Code",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "currencyname": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 100,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "Name of the transaction currency.",
+          "title": "Currency Name",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "currencyprecision": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 0,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Number of decimal places that can be used for currency.",
+          "title": "Currency Precision",
+          "format": "int32",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "currencysymbol": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 10,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "Symbol for the transaction currency.",
+          "title": "Currency Symbol",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "currencytype": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Currency type that can be used for new currency.",
+          "title": "Currency Type Value",
+          "format": "int32",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "c4e1d349-34da-4ebe-9957-1b7c8c4fc7d3",
+              "type": "Picklist"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "entityimage": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-media-kind": "image",
+          "format": "byte",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "The default image for the entity.",
+          "title": "Entity Image",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "entityimageid": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "For internal use only.",
+          "title": "Entity Image Id",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "exchangerate": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 100000000000,
+          "minimum": 1e-12,
+          "ConvertDecimal": true,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Exchange rate between the transaction currency and the base currency.",
+          "title": "Exchange Rate",
+          "format": "double",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "importsequencenumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the data import or data migration that created this record.",
+          "title": "Import Sequence Number",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "modifiedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the transaction currency was last modified.",
+          "title": "Modified On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "overriddencreatedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time that the record was migrated.",
+          "title": "Record Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "statuscode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the transaction currency.",
+          "title": "Status Reason Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "196b0fd1-7a14-493c-b3d1-4fb917803fee",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "statecode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the transaction currency.",
+          "title": "Status Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "2df1eed8-6b33-4a19-983b-e8c6674e6075",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "transactioncurrencyid": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the transaction currency.",
+          "title": "Transaction Currency",
+          "format": "guid",
+          "x-ms-keyOrder": 0,
+          "x-ms-keyType": "primary",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "versionnumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 9223372036854776000,
+          "minimum": -9223372036854776000,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Version number of the transaction currency.",
+          "title": "Version Number",
+          "format": "int64",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_createdby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the transaction currency.",
+          "title": "Created By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_createdonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the transactioncurrency.",
+          "title": "Created By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_createdonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the transactioncurrency.",
+          "title": "Created By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdonbehalfby"
+          ]
+        },
+        "_createdby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the transaction currency.",
+          "title": "Created By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdby"
+          ]
+        },
+        "_currencytype_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Currency type that can be used for new currency.",
+          "title": "Currency Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "c4e1d349-34da-4ebe-9957-1b7c8c4fc7d3",
+              "type": "Picklist"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "System",
+            "Custom"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            0,
+            1
+          ]
+        },
+        "_modifiedby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who last modified the transaction currency.",
+          "title": "Modified By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_modifiedonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who last modified the transactioncurrency.",
+          "title": "Modified By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_modifiedonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who last modified the transactioncurrency.",
+          "title": "Modified By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedonbehalfby"
+          ]
+        },
+        "_modifiedby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who last modified the transaction currency.",
+          "title": "Modified By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedby"
+          ]
+        },
+        "_organizationid_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the organization associated with the transaction currency.",
+          "title": "Organization",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_organizationid_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the organization associated with the transaction currency.",
+          "title": "Organization Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "organizations"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "organizations"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "organizationid"
+          ]
+        },
+        "_statecode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the transaction currency.",
+          "title": "Status",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "2df1eed8-6b33-4a19-983b-e8c6674e6075",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            0,
+            1
+          ]
+        },
+        "_statuscode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the transaction currency.",
+          "title": "Status Reason",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "196b0fd1-7a14-493c-b3d1-4fb917803fee",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            1,
+            2
+          ]
+        },
+        "{Attachments}": {
+          "title": "Attachments",
+          "description": "Never returns any data. Use Attachment endpoints to access item attachments.",
+          "x-ms-permission": "read-write",
+          "targetEntity": "attachments",
+          "format": "x-ms-containedMediaEntity",
+          "x-ms-visibility": "internal",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "format": "x-ms-mediaEntity",
+            "x-ms-sort": "none",
+            "properties": {
+              "@odata.type": {
+                "title": "@odata.type",
+                "x-ms-visibility": "internal",
+                "type": "string",
+                "x-ms-permission": "read-write",
+                "default": "#Object"
+              },
+              "Id": {
+                "title": "Id",
+                "type": "string",
+                "x-ms-keyType": "primary",
+                "x-ms-keyOrder": 1,
+                "x-ms-permission": "read-only"
+              },
+              "AbsoluteUri": {
+                "title": "AbsoluteUri",
+                "type": "string",
+                "format": "uri",
+                "x-ms-permission": "read-only"
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "type": "string",
+                "x-ms-permission": "read-only"
+              }
+            }
+          },
+          "@odata.type": "#Collection(Object)"
+        }
+      },
+      "required": [],
+      "x-ms-displayFormat": {
+        "propertiesCompactDisplayOrder": [],
+        "propertiesDisplayOrder": [],
+        "propertiesTabularDisplayOrder": [
+          "currencyname",
+          "currencyprecision",
+          "currencysymbol",
+          "exchangerate",
+          "isocurrencycode"
+        ]
+      },
+      "x-ms-relationships": {}
+    },
+    "logicalname": "transactioncurrency"
+  },
+  "referencedEntities": {},
+  "x-ms-connection-version": ""
+}

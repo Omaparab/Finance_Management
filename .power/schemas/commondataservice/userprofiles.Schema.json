@@ -1,0 +1,1092 @@
+{
+  "name": "oma_userprofiles",
+  "title": "User Profiles",
+  "x-ms-permission": "read-write",
+  "x-ms-capabilities": {
+    "sortRestrictions": {
+      "sortable": true,
+      "unsortableProperties": [
+        "_createdby_value",
+        "_createdby_type",
+        "_createdonbehalfby_value",
+        "_createdonbehalfby_type",
+        "_modifiedby_value",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_value",
+        "_modifiedonbehalfby_type",
+        "_oma_defaultcurrency_value",
+        "_oma_defaultcurrency_type",
+        "_ownerid_type",
+        "_owningbusinessunit_value",
+        "_owningbusinessunit_type",
+        "_transactioncurrencyid_value",
+        "_transactioncurrencyid_type",
+        "oma_risktolerance",
+        "_oma_risktolerance_label",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "filterRestrictions": {
+      "filterable": true,
+      "nonFilterableProperties": [
+        "_createdby_type",
+        "_createdonbehalfby_type",
+        "_modifiedby_type",
+        "_modifiedonbehalfby_type",
+        "_oma_defaultcurrency_type",
+        "_ownerid_type",
+        "_owningbusinessunit_type",
+        "_transactioncurrencyid_type",
+        "_oma_risktolerance_label",
+        "_statecode_label",
+        "_statuscode_label"
+      ]
+    },
+    "isOnlyServerPagable": true,
+    "filterFunctionSupport": [
+      "eq",
+      "ne",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "and",
+      "or",
+      "contains",
+      "startswith",
+      "endswith",
+      "not",
+      "null"
+    ]
+  },
+  "schema": {
+    "type": "array",
+    "locale": 1033,
+    "items": {
+      "type": "object",
+      "properties": {
+        "createdon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the record was created.",
+          "title": "Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "exchangerate": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 100000000000,
+          "minimum": 1e-10,
+          "ConvertDecimal": true,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Exchange rate for the currency associated with the entity with respect to the base currency.",
+          "title": "Exchange Rate",
+          "format": "double",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "oma_financialyearstart": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Financial Year Start",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_fullname": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 150,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Full Name",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "importsequencenumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Sequence number of the import that created this record.",
+          "title": "Import Sequence Number",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "modifiedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time when the record was modified.",
+          "title": "Modified On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "oma_monthlyincome": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": 0,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Monthly Income",
+          "format": "currency",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_monthlyincome_base": {
+          "x-ms-sort": "none",
+          "type": "number",
+          "maximum": 922337203685477,
+          "minimum": 0,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Value of the Monthly Income in base currency.",
+          "title": "Monthly Income (Base)",
+          "format": "currency",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "oma_profilename": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "maxLength": 100,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "contains",
+              "startswith",
+              "endswith",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Profile Name",
+          "x-ms-visibility": "important",
+          "x-ms-permission": "read-write"
+        },
+        "overriddencreatedon": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Date and time that the record was migrated.",
+          "title": "Record Created On",
+          "format": "date-time",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_risktolerance": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Risk Tolerance Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "a45d7441-4ec2-f111-aaaf-e4fade055b79",
+              "type": "Picklist"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "statuscode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the User Profile",
+          "title": "Status Reason Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "9f1e4b45-22b4-4f3a-b404-bfe9f5b2fd66",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "statecode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the User Profile",
+          "title": "Status Value",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "044ae898-d8ea-44ed-80d2-7ceff82447dd",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          }
+        },
+        "timezoneruleversionnumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -1,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "For internal use only.",
+          "title": "Time Zone Rule Version Number",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "oma_userprofileid": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for entity instances",
+          "title": "User Profile",
+          "format": "guid",
+          "x-ms-keyOrder": 0,
+          "x-ms-keyType": "primary",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "utcconversiontimezonecode": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -1,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Time zone code that was in use when the record was created.",
+          "title": "UTC Conversion Time Zone Code",
+          "format": "int32",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "versionnumber": {
+          "x-ms-sort": "none",
+          "type": "integer",
+          "maximum": 9223372036854776000,
+          "minimum": -9223372036854776000,
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Version Number",
+          "title": "Version Number",
+          "format": "int64",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_createdby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the record.",
+          "title": "Created By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_createdonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the record.",
+          "title": "Created By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_createdonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who created the record.",
+          "title": "Created By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdonbehalfby"
+          ]
+        },
+        "_createdby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who created the record.",
+          "title": "Created By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "createdby"
+          ]
+        },
+        "_transactioncurrencyid_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the currency associated with the entity.",
+          "title": "Currency",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_transactioncurrencyid_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the currency associated with the entity.",
+          "title": "Currency Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "transactioncurrencies"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "transactioncurrencies"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "transactioncurrencyid"
+          ]
+        },
+        "_oma_defaultcurrency_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Default Currency",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_oma_defaultcurrency_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Default Currency Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "transactioncurrencies"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "transactioncurrencies"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "oma_DefaultCurrency"
+          ]
+        },
+        "_modifiedby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who modified the record.",
+          "title": "Modified By",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only"
+        },
+        "_modifiedonbehalfby_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who modified the record.",
+          "title": "Modified By (Delegate)",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_modifiedonbehalfby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the delegate user who modified the record.",
+          "title": "Modified By (Delegate) Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedonbehalfby"
+          ]
+        },
+        "_modifiedby_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier of the user who modified the record.",
+          "title": "Modified By Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "systemusers"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "systemusers"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "modifiedby"
+          ]
+        },
+        "_ownerid_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Owner Id",
+          "title": "Owner",
+          "format": "guid",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write"
+        },
+        "_ownerid_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Owner Id",
+          "title": "Owner Type",
+          "format": "string",
+          "x-ms-visibility": "advanced",
+          "x-ms-permission": "read-write",
+          "enum": [
+            "",
+            "systemusers",
+            "teams"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [],
+          "x-ms-crm-navigationpropertynames ": []
+        },
+        "_owningbusinessunit_value": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for the business unit that owns the record",
+          "title": "Owning Business Unit",
+          "format": "guid",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "none"
+        },
+        "_owningbusinessunit_type": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Unique identifier for the business unit that owns the record",
+          "title": "Owning Business Unit Type",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-only",
+          "enum": [
+            "",
+            "businessunits"
+          ],
+          "default": "",
+          "x-ms-crm-targetentitynames": [
+            "businessunits"
+          ],
+          "x-ms-crm-navigationpropertynames ": [
+            "owningbusinessunit"
+          ]
+        },
+        "_oma_risktolerance_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "",
+          "title": "Risk Tolerance",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "a45d7441-4ec2-f111-aaaf-e4fade055b79",
+              "type": "Picklist"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Conservative",
+            "Moderate",
+            "Aggressive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            1,
+            2,
+            3
+          ]
+        },
+        "_statecode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Status of the User Profile",
+          "title": "Status",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "044ae898-d8ea-44ed-80d2-7ceff82447dd",
+              "type": "State"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            0,
+            1
+          ]
+        },
+        "_statuscode_label": {
+          "x-ms-sort": "none",
+          "type": "string",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "ne",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "null"
+            ]
+          },
+          "description": "Reason for the status of the User Profile",
+          "title": "Status Reason",
+          "format": "string",
+          "x-ms-visibility": "internal",
+          "x-ms-permission": "read-write",
+          "x-ms-dynamic-values": {
+            "operationId": "GetOptionSetMetadata",
+            "parameters": {
+              "dataset": {
+                "parameter": "dataset"
+              },
+              "table": {
+                "parameter": "table"
+              },
+              "item": "9f1e4b45-22b4-4f3a-b404-bfe9f5b2fd66",
+              "type": "Status"
+            },
+            "value-path": "value",
+            "value-title": "label",
+            "value-collection": "value"
+          },
+          "enum": [
+            "",
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-crm-enumvalues": [
+            null,
+            1,
+            2
+          ]
+        },
+        "{Attachments}": {
+          "title": "Attachments",
+          "description": "Never returns any data. Use Attachment endpoints to access item attachments.",
+          "x-ms-permission": "read-write",
+          "targetEntity": "attachments",
+          "format": "x-ms-containedMediaEntity",
+          "x-ms-visibility": "internal",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "format": "x-ms-mediaEntity",
+            "x-ms-sort": "none",
+            "properties": {
+              "@odata.type": {
+                "title": "@odata.type",
+                "x-ms-visibility": "internal",
+                "type": "string",
+                "x-ms-permission": "read-write",
+                "default": "#Object"
+              },
+              "Id": {
+                "title": "Id",
+                "type": "string",
+                "x-ms-keyType": "primary",
+                "x-ms-keyOrder": 1,
+                "x-ms-permission": "read-only"
+              },
+              "AbsoluteUri": {
+                "title": "AbsoluteUri",
+                "type": "string",
+                "format": "uri",
+                "x-ms-permission": "read-only"
+              },
+              "DisplayName": {
+                "title": "DisplayName",
+                "type": "string",
+                "x-ms-permission": "read-only"
+              }
+            }
+          },
+          "@odata.type": "#Collection(Object)"
+        }
+      },
+      "required": [],
+      "x-ms-displayFormat": {
+        "propertiesCompactDisplayOrder": [
+          "createdon",
+          "oma_profilename",
+          "_ownerid_value",
+          "statuscode"
+        ],
+        "propertiesDisplayOrder": [],
+        "propertiesTabularDisplayOrder": [
+          "_oma_defaultcurrency_value",
+          "oma_financialyearstart",
+          "oma_fullname",
+          "oma_monthlyincome",
+          "oma_profilename",
+          "oma_risktolerance"
+        ]
+      },
+      "x-ms-relationships": {}
+    },
+    "logicalname": "oma_userprofile"
+  },
+  "referencedEntities": {},
+  "x-ms-connection-version": ""
+}

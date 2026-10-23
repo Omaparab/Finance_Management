@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "appId": "YOUR-POWER-APP-ID",
+  "appDisplayName": "Code App",
+  "region": "prod",
+  "appType": "CodeApp",
+  "environmentId": "YOUR-POWER-PLATFORM-ENVIRONMENT-ID",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {
+    "YOUR-CONNECTION-REFERENCE-ID": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_commondataservice",
+      "displayName": "Microsoft Dataverse",
+      "dataSources": [
+        "oma_transactions",
+        "oma_userprofiles",
+        "oma_financialaccounts",
+        "oma_categories",
+        "oma_budgets",
+        "oma_savingsgoals",
+        "oma_savingscontributions",
+        "oma_investments",
+        "oma_investmenttransactions",
+        "transactioncurrencies"
+      ],
+      "dataSets": {
+        "default.cds": {
+          "dataSources": {
+            "oma_transactions": {
+              "tableName": "oma_transactions"
+            },
+            "oma_userprofiles": {
+              "tableName": "oma_userprofiles"
+            },
+            "oma_financialaccounts": {
+              "tableName": "oma_financialaccounts"
+            },
+            "oma_categories": {
+              "tableName": "oma_categories"
+            },
+            "oma_budgets": {
+              "tableName": "oma_budgets"
+            },
+            "oma_savingsgoals": {
+              "tableName": "oma_savingsgoals"
+            },
+            "oma_savingscontributions": {
+              "tableName": "oma_savingscontributions"
+            },
+            "oma_investments": {
+              "tableName": "oma_investments"
+            },
+            "oma_investmenttransactions": {
+              "tableName": "oma_investmenttransactions"
+            },
+            "transactioncurrencies": {
+              "tableName": "transactioncurrencies"
+            }
+          }
+        }
+      }
+    }
+  },
+  "databaseReferences": {}
+}

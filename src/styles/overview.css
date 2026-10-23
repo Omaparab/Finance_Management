@@ -1,0 +1,98 @@
+
+.overview { position: relative; isolation: isolate; width: 100%; max-width: none; margin: 0; padding: 40px clamp(16px, 2vw, 28px) 0; }
+.overview::before { position: absolute; inset: 0 0 -20px; z-index: -1; background-color: #f7f7fc; background-image: radial-gradient(ellipse at 10% 8%, #decdf788, transparent 42%), radial-gradient(ellipse at 92% 12%, #cce7ff8c, transparent 40%), radial-gradient(ellipse at 60% 88%, #f7d9eb80, transparent 48%), linear-gradient(145deg, #f9f8fd, #f1f5fb); content: ""; pointer-events: none; }
+.welcome-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+.overview .welcome-row .eyebrow { display: inline-flex; min-height: 25px; align-items: center; margin-bottom: 10px; padding: 0 10px; border: 1px solid #ffffffc9; border-radius: 999px; background: #ffffff75; box-shadow: 0 4px 14px #37345b0b, inset 0 1px #fff; color: #6b64b2; }
+.overview .welcome-row h1 { color: #302f49; text-shadow: 0 1px 0 #ffffffa6; }
+.overview .subtitle { color: #737287; }
+.welcome-row h1 { margin-bottom: 8px; font-size: clamp(24px, 3vw, 32px); letter-spacing: -1px; }
+.panel-heading p { margin-bottom: 0; color: #898998; font-size: 13px; }
+.summary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+.summary-card, .panel { border: 1px solid #ededf2; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px #25253808; }
+.overview .summary-card, .overview .panel { border: 1px solid #ffffffd1; background: #ffffffa3; box-shadow: 0 12px 32px #37345b10, inset 0 1px #ffffffed, inset 0 -1px #ffffff52; backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); }
+.summary-card { display: grid; gap: 11px; padding: 18px; }
+.overview .summary-card { transition: transform .2s ease, box-shadow .2s ease; }
+.overview .summary-card:hover { transform: translateY(-2px); box-shadow: 0 16px 36px #37345b19, inset 0 1px #ffffff; }
+.overview .summary-card:nth-child(1) { background: linear-gradient(145deg, #ffffffb8, #f4f0ffad); }
+.overview .summary-card:nth-child(2) { border-radius: 25px 18px 28px 20px / 20px 27px 18px 25px; background: linear-gradient(135deg, #ffffffd1, #ebe8ffad); box-shadow: 0 16px 38px #6654a41a, inset 0 1px #ffffff; }
+.overview .summary-card:nth-child(3) { background: linear-gradient(145deg, #ffffffbd, #eef7ffad); }
+.overview .summary-card:nth-child(4) { background: linear-gradient(145deg, #ffffffbd, #f2f0ffad); }
+.overview .summary-card:nth-child(5) { background: linear-gradient(145deg, #ffffffbd, #fff0f8ad); }
+.overview .summary-card:nth-child(6) { background: linear-gradient(145deg, #ffffffbd, #edf4ffad); }
+.overview .summary-card:nth-child(7) { background: linear-gradient(145deg, #ffffffbd, #f7f1ffad); }
+.summary-card > span { color: #777786; font-size: 12px; }
+.summary-card strong { color: #2d2c3e; font-size: 25px; letter-spacing: -.5px; }
+.summary-card small { color: #9898a5; font-size: 11px; }
+.overview .summary-card > span { color: #666579; }
+.overview .summary-card strong { color: #302f49; text-shadow: 0 1px 0 #ffffffb8; }
+.overview .summary-card small { color: #7e7c91; }
+.content-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); gap: 18px; margin-bottom: 18px; }
+.panel { min-width: 0; padding: 20px; }
+.overview .panel { border-radius: 20px; }
+.overview .panel-heading h2 { color: #343348; }
+.overview .panel-heading p { color: #7c7a90; }
+.panel-heading { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; }
+.panel-heading h2 { margin: 0 0 5px; font-size: 15px; }
+.panel-heading p { font-size: 11px; }
+.table-wrap { overflow-x: auto; }
+.overview table { border-collapse: separate; border-spacing: 0 5px; }
+.overview th { padding-bottom: 7px; color: #77758e; }
+.overview td { border-top: 1px solid #ffffffa8; border-bottom: 1px solid #ffffffa8; background: #ffffff54; color: #4f4e64; transition: background .15s ease; }
+.overview td:first-child { border-left: 1px solid #ffffffa8; border-radius: 8px 0 0 8px; }
+.overview td:last-child { border-right: 1px solid #ffffffa8; border-radius: 0 8px 8px 0; }
+.overview tbody tr:hover td { background: #ffffffa8; }
+.align-right { text-align: right; }
+.empty-state { display: grid; min-height: 100px; place-items: center; margin: 0; color: #9292a0; font-size: 12px; text-align: center; }
+.overview .empty-state { min-height: 110px; padding: 16px; border: 1px dashed #ffffffc9; border-radius: 12px; background: #ffffff52; color: #77758b; }
+.record-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.record-list li { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.overview .record-list li { padding: 9px; border: 1px solid #ffffff91; border-radius: 12px; background: #ffffff52; box-shadow: inset 0 1px #ffffffa8; transition: background .15s ease, transform .15s ease; }
+.overview .record-list li:hover { transform: translateY(-1px); background: #ffffffa3; }
+.record-icon { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: #f0efff; color: #625bd0; font-size: 13px; font-weight: 700; }
+.record-copy { display: grid; min-width: 0; flex: 1; gap: 4px; }
+.record-copy strong { overflow: hidden; color: #454454; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.record-copy small { color: #9292a0; font-size: 10px; }
+.record-value { color: #454454; font-size: 11px; }
+.overview .record-copy strong, .overview .record-value { color: #414056; }
+.overview .record-copy small { color: #7f7d91; }
+.goal-list { gap: 18px; }
+.goal-record { align-items: flex-start !important; }
+.goal-record .record-copy { gap: 7px; }
+.goal-record .progress-track { width: 100%; }
+.budget-panel { margin-bottom: 18px; }
+.budget-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.budget-item { display: grid; gap: 9px; }
+.overview .budget-item { padding: 12px 13px; border: 1px solid #ffffffa8; border-radius: 13px; background: #ffffff5c; box-shadow: inset 0 1px #ffffffa8; }
+.budget-label { display: flex; justify-content: space-between; gap: 12px; color: #666574; font-size: 11px; }
+.budget-label span { color: #8c8c99; white-space: nowrap; }
+.progress-track { height: 6px; overflow: hidden; border-radius: 10px; background: #efeff5; }
+.progress-track span { display: block; height: 100%; border-radius: inherit; background: #6c63d9; }
+.overview .budget-label { color: #535269; }
+.overview .budget-label span { color: #77758e; }
+.overview .record-icon { border: 1px solid #ffffffd1; background: linear-gradient(145deg, #f2f0ff, #e9e7ffe0); box-shadow: 0 4px 12px #6559bc12, inset 0 1px #fff; }
+.overview .progress-track { height: 8px; border: 1px solid #ffffffa8; background: #e6e6f0d9; box-shadow: inset 0 1px 2px #35334b0d; }
+.overview .progress-track span { background: linear-gradient(90deg, #7369df, #9886e9); box-shadow: 0 0 10px #6c63d966, inset 0 1px #ffffff70; }
+.overview .button-secondary { border-color: #ffffffd1; background: #ffffff8c; box-shadow: 0 5px 16px #37345b10, inset 0 1px #fff; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.overview .button-secondary:hover { border-color: #ffffff; background: #ffffffd1; }
+.overview .app-footer { padding: 16px 12px 24px; border-top: 1px solid #ffffffa8; color: #77758c; }
+
+@media (max-width: 800px) {
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .content-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  .overview { padding: 28px 16px 0; }
+  .welcome-row { align-items: flex-start; flex-direction: column; }
+  .summary-grid { gap: 9px; }
+  .summary-card { padding: 13px; }
+  .summary-card strong { font-size: 21px; }
+  .budget-grid { grid-template-columns: 1fr; }
+  .panel { padding: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overview .summary-card, .overview .record-list li, .overview td { transition: none; }
+  .overview .summary-card:hover { transform: none; }
+  .overview .record-list li:hover { transform: none; }
+}

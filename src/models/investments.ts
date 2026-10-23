@@ -1,0 +1,52 @@
+import type { DataverseAttachment } from './dataverse'
+
+export interface Investment {
+  "oma_assettype"?: number
+  "createdon"?: string
+  "oma_currentprice"?: number
+  "oma_currentprice_base"?: number
+  "oma_currentvalue"?: number
+  "oma_currentvalue_base"?: number
+  "exchangerate"?: number
+  "importsequencenumber"?: number
+  "oma_investedamount"?: number
+  "oma_investedamount_base"?: number
+  "oma_investmentid"?: string
+  "oma_investmentname"?: string
+  "modifiedon"?: string
+  "oma_purchasedate"?: string
+  "oma_purchaseprice"?: number
+  "oma_purchaseprice_base"?: number
+  "oma_quantity"?: number
+  "overriddencreatedon"?: string
+  "statuscode"?: number
+  "oma_status"?: number
+  "statecode"?: number
+  "oma_tickersymbol"?: string
+  "timezoneruleversionnumber"?: number
+  "utcconversiontimezonecode"?: number
+  "versionnumber"?: number
+  "_oma_assettype_label"?: string
+  "_createdby_value"?: string
+  "_createdonbehalfby_value"?: string
+  "_createdonbehalfby_type"?: string
+  "_createdby_type"?: string
+  "_transactioncurrencyid_value"?: string
+  "_transactioncurrencyid_type"?: string
+  "_oma_financialaccount_value"?: string
+  "_oma_financialaccount_type"?: string
+  "_modifiedby_value"?: string
+  "_modifiedonbehalfby_value"?: string
+  "_modifiedonbehalfby_type"?: string
+  "_modifiedby_type"?: string
+  "_ownerid_value"?: string
+  "_ownerid_type"?: string
+  "_owningbusinessunit_value"?: string
+  "_owningbusinessunit_type"?: string
+  "_oma_status_label"?: string
+  "_statecode_label"?: string
+  "_statuscode_label"?: string
+  "_oma_userprofile_value"?: string
+  "_oma_userprofile_type"?: string
+  "{Attachments}"?: DataverseAttachment[]
+}
