@@ -1,0 +1,96 @@
+.overview .summary-card,
+.overview .panel,
+.overview .budget-item,
+.overview .empty-state,
+.accounts-page .accounts-summary article,
+.accounts-page .accounts-list-panel,
+.accounts-page .account-record,
+.transactions-page .transaction-stat,
+.transactions-page .transactions-panel,
+.budget-page .budget-summary article,
+.budget-page .budget-list-panel,
+.budget-page .budget-record,
+.savings-goals-page .savings-goals-summary article,
+.savings-goals-page .savings-goals-panel,
+.savings-goals-page .savings-goal-card,
+.investments-page .investments-summary article,
+.investments-page .investments-panel,
+.investments-page .investment-card,
+.reports-page .reports-summary article,
+.reports-page .reports-panel {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.overview .summary-card:hover,
+.overview .panel:hover,
+.overview .budget-item:hover,
+.overview .empty-state:hover,
+.accounts-page .accounts-summary article:hover,
+.accounts-page .accounts-list-panel:hover,
+.accounts-page .account-record:hover,
+.transactions-page .transaction-stat:hover,
+.transactions-page .transactions-panel:hover,
+.budget-page .budget-summary article:hover,
+.budget-page .budget-list-panel:hover,
+.budget-page .budget-record:hover,
+.savings-goals-page .savings-goals-summary article:hover,
+.savings-goals-page .savings-goals-panel:hover,
+.savings-goals-page .savings-goal-card:hover,
+.investments-page .investments-summary article:hover,
+.investments-page .investments-panel:hover,
+.investments-page .investment-card:hover,
+.reports-page .reports-summary article:hover,
+.reports-page .reports-panel:hover {
+  position: relative;
+  z-index: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px #37345b19, inset 0 1px #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overview .summary-card,
+  .overview .panel,
+  .overview .budget-item,
+  .overview .empty-state,
+  .accounts-page .accounts-summary article,
+  .accounts-page .accounts-list-panel,
+  .accounts-page .account-record,
+  .transactions-page .transaction-stat,
+  .transactions-page .transactions-panel,
+  .budget-page .budget-summary article,
+  .budget-page .budget-list-panel,
+  .budget-page .budget-record,
+  .savings-goals-page .savings-goals-summary article,
+  .savings-goals-page .savings-goals-panel,
+  .savings-goals-page .savings-goal-card,
+  .investments-page .investments-summary article,
+  .investments-page .investments-panel,
+  .investments-page .investment-card,
+  .reports-page .reports-summary article,
+  .reports-page .reports-panel {
+    transition: none;
+  }
+
+  .overview .summary-card:hover,
+  .overview .panel:hover,
+  .overview .budget-item:hover,
+  .overview .empty-state:hover,
+  .accounts-page .accounts-summary article:hover,
+  .accounts-page .accounts-list-panel:hover,
+  .accounts-page .account-record:hover,
+  .transactions-page .transaction-stat:hover,
+  .transactions-page .transactions-panel:hover,
+  .budget-page .budget-summary article:hover,
+  .budget-page .budget-list-panel:hover,
+  .budget-page .budget-record:hover,
+  .savings-goals-page .savings-goals-summary article:hover,
+  .savings-goals-page .savings-goals-panel:hover,
+  .savings-goals-page .savings-goal-card:hover,
+  .investments-page .investments-summary article:hover,
+  .investments-page .investments-panel:hover,
+  .investments-page .investment-card:hover,
+  .reports-page .reports-summary article:hover,
+  .reports-page .reports-panel:hover {
+    transform: none;
+  }
+}
