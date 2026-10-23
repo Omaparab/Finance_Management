@@ -40,6 +40,7 @@ export function ProfileSelection({
   error,
 }: ProfileSelectionProps) {
   const [search, setSearch] = useState('')
+  const [openMenuProfileId, setOpenMenuProfileId] = useState('')
   const [editingProfile, setEditingProfile] = useState<UserProfile | null>(null)
   const [editorOpen, setEditorOpen] = useState(false)
   const [profileName, setProfileName] = useState('')
@@ -111,7 +112,6 @@ export function ProfileSelection({
       <section className="profile-picker" aria-label="Finance profile management">
         <div className="profile-picker-heading">
           <div><h2>Your profiles</h2><p>{profiles.length} {profiles.length === 1 ? 'profile' : 'profiles'} available</p></div>
-          <button className="button-primary profile-add-button" type="button" disabled={Boolean(selectingProfileId)} onClick={() => openEditor(null)}>Add profile</button>
         </div>
         {profiles.length > 0 && <>
           <label className="profile-search">
@@ -129,35 +129,72 @@ export function ProfileSelection({
             <p>{filteredProfiles.length} matching {filteredProfiles.length === 1 ? 'profile' : 'profiles'}</p>
           </div>
         </>}
-        {filteredProfiles.length ? <div className="profile-options">
+        <div className="profile-options">
           {filteredProfiles.map((profile) => {
             const name = getProfileName(profile)
             const id = profile.oma_userprofileid ?? ''
             const selecting = selectingProfileId === id
             return (
-              <article className="profile-option" key={id}>
+              <article
+                className="profile-option"
+                key={id}
+                onBlur={(event) => {
+                  if (!(event.relatedTarget instanceof Node) || !event.currentTarget.contains(event.relatedTarget)) {
+                    setOpenMenuProfileId('')
+                  }
+                }}
+              >
                 <button
                   className="profile-option-main"
                   type="button"
                   disabled={Boolean(selectingProfileId)}
                   onClick={() => onSelect(profile)}
+                  aria-label={`Open finance profile ${name}`}
                 >
                   <span className="profile-option-avatar">{getInitials(name)}</span>
-                  <span className="profile-option-copy"><strong>{name}</strong><small>{profile.oma_profilename?.trim() || 'Dataverse finance profile'}</small></span>
-                  <span className="profile-option-action">{selecting ? 'Opening…' : 'Open'}</span>
+                  <span className="profile-option-copy">
+                    <strong>{name}</strong>
+                    <small>{profile.oma_profilename?.trim() || 'Dataverse finance profile'}</small>
+                    <span className="profile-option-action">{selecting ? 'Opening…' : 'Click to open'}</span>
+                  </span>
                 </button>
-                <div className="profile-option-actions">
-                  <button type="button" disabled={Boolean(selectingProfileId)} onClick={() => openEditor(profile)}>Edit</button>
-                  <button type="button" className="profile-delete-action" disabled={Boolean(selectingProfileId)} onClick={() => { setDeletingProfile(profile); setDeleteError(''); setDeleteAcknowledged(false) }}>Delete</button>
+                <div className="profile-option-menu">
+                  <button
+                    type="button"
+                    className="profile-option-menu-trigger"
+                    aria-label={`More actions for ${name}`}
+                    aria-haspopup="menu"
+                    aria-expanded={openMenuProfileId === id}
+                    disabled={Boolean(selectingProfileId)}
+                    onClick={() => setOpenMenuProfileId((current) => current === id ? '' : id)}
+                  >
+                    <span aria-hidden="true">⋮</span>
+                  </button>
+                  {openMenuProfileId === id && <div className="profile-option-menu-popup" role="menu" aria-label={`${name} actions`}>
+                    <button type="button" role="menuitem" onClick={() => { setOpenMenuProfileId(''); openEditor(profile) }}>Edit profile</button>
+                    <button type="button" role="menuitem" className="profile-delete-action" onClick={() => {
+                      setOpenMenuProfileId('')
+                      setDeletingProfile(profile)
+                      setDeleteError('')
+                      setDeleteAcknowledged(false)
+                    }}>Delete profile</button>
+                  </div>}
                 </div>
               </article>
             )
           })}
-        </div> : profiles.length ? (
-          <p className="profile-no-results">No profiles match “{search.trim()}”. Try a different name.</p>
-        ) : (
-          <p className="profile-selection-empty">No profiles yet. Add a profile to get started.</p>
-        )}
+          {profiles.length > 0 && filteredProfiles.length === 0 && (
+            <p className="profile-no-results">No profiles match “{search.trim()}”. Try a different name.</p>
+          )}
+          {profiles.length === 0 && <p className="profile-selection-empty">No profiles yet. Add one to get started.</p>}
+          <button className="profile-add-tile" type="button" disabled={Boolean(selectingProfileId)} onClick={() => openEditor(null)}>
+            <span className="profile-add-tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+            </span>
+            <strong>Add profile</strong>
+            <small>Create another finance workspace</small>
+          </button>
+        </div>
         {selectingProfileId && <span className="profile-selection-progress" aria-live="polite">Loading this profile’s finance data…</span>}
       </section>
 
