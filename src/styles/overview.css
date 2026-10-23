@@ -13,6 +13,10 @@
 .summary-card { display: grid; gap: 11px; padding: 18px; }
 .overview .summary-card { transition: transform .2s ease, box-shadow .2s ease; }
 .overview .summary-card:hover { transform: translateY(-2px); box-shadow: 0 16px 36px #37345b19, inset 0 1px #ffffff; }
+.overview .panel, .overview .budget-item, .overview .empty-state { transition: transform .2s ease, box-shadow .2s ease; }
+.overview .panel:hover { transform: translateY(-2px); box-shadow: 0 16px 36px #37345b19, inset 0 1px #ffffff; }
+.overview .budget-item:hover { transform: translateY(-2px); box-shadow: 0 10px 24px #37345b12, inset 0 1px #ffffff; }
+.overview .empty-state:hover { transform: translateY(-1px); box-shadow: 0 8px 20px #37345b10, inset 0 1px #ffffff; }
 .overview .summary-card:nth-child(1) { background: linear-gradient(145deg, #ffffffb8, #f4f0ffad); }
 .overview .summary-card:nth-child(2) { border-radius: 25px 18px 28px 20px / 20px 27px 18px 25px; background: linear-gradient(135deg, #ffffffd1, #ebe8ffad); box-shadow: 0 16px 38px #6654a41a, inset 0 1px #ffffff; }
 .overview .summary-card:nth-child(3) { background: linear-gradient(145deg, #ffffffbd, #eef7ffad); }
@@ -92,7 +96,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .overview .summary-card, .overview .record-list li, .overview td { transition: none; }
-  .overview .summary-card:hover { transform: none; }
+  .overview .summary-card, .overview .panel, .overview .budget-item, .overview .empty-state, .overview .record-list li, .overview td { transition: none; }
+  .overview .summary-card:hover, .overview .panel:hover, .overview .budget-item:hover, .overview .empty-state:hover { transform: none; }
   .overview .record-list li:hover { transform: none; }
 }
