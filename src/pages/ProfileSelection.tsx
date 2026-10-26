@@ -5,6 +5,7 @@ import type { UserProfileInput } from '../services/profileService'
 
 interface ProfileSelectionProps {
   profiles: UserProfile[]
+  recentProfileIds: string[]
   onSelect: (profile: UserProfile) => void
   onSaveProfile: (profile: UserProfile | null, input: UserProfileInput) => Promise<void>
   onDeleteProfile: (profile: UserProfile) => Promise<void>
@@ -31,8 +32,11 @@ const referencedTables = [
   'Investment Transactions',
 ]
 
+const profilesPerPage = 10
+
 export function ProfileSelection({
   profiles,
+  recentProfileIds,
   onSelect,
   onSaveProfile,
   onDeleteProfile,
@@ -40,6 +44,8 @@ export function ProfileSelection({
   error,
 }: ProfileSelectionProps) {
   const [search, setSearch] = useState('')
+  const [page, setPage] = useState(1)
+  const [openMenuProfileId, setOpenMenuProfileId] = useState('')
   const [editingProfile, setEditingProfile] = useState<UserProfile | null>(null)
   const [editorOpen, setEditorOpen] = useState(false)
   const [profileName, setProfileName] = useState('')
@@ -58,6 +64,33 @@ export function ProfileSelection({
       `${profile.oma_fullname ?? ''} ${profile.oma_profilename ?? ''}`.toLocaleLowerCase().includes(query)
     ))
   }, [profiles, search])
+
+  const orderedProfiles = useMemo(() => {
+    const recentRank = new Map(recentProfileIds.map((id, index) => [id, index]))
+    return [...filteredProfiles].sort((first, second) => {
+      const firstRank = recentRank.get(first.oma_userprofileid ?? '')
+      const secondRank = recentRank.get(second.oma_userprofileid ?? '')
+      if (firstRank === undefined) return secondRank === undefined ? 0 : 1
+      if (secondRank === undefined) return -1
+      return firstRank - secondRank
+    })
+  }, [filteredProfiles, recentProfileIds])
+
+  const pageCount = Math.max(1, Math.ceil(orderedProfiles.length / profilesPerPage))
+  const currentPage = Math.min(page, pageCount)
+  const visibleProfiles = orderedProfiles.slice(
+    (currentPage - 1) * profilesPerPage,
+    currentPage * profilesPerPage,
+  )
+
+  function openProfile(profile: UserProfile) {
+    onSelect(profile)
+  }
+
+  function updateSearch(value: string) {
+    setSearch(value)
+    setPage(1)
+  }
 
   function openEditor(profile: UserProfile | null) {
     setEditingProfile(profile)
@@ -119,41 +152,81 @@ export function ProfileSelection({
             <input
               type="search"
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => updateSearch(event.target.value)}
               placeholder="Search profiles by name"
               aria-label="Search profiles by name"
             />
-            {search && <button type="button" className="clear-search" onClick={() => setSearch('')} aria-label="Clear profile search">×</button>}
+            {search && <button type="button" className="clear-search" onClick={() => updateSearch('')} aria-label="Clear profile search">×</button>}
           </label>
           <div className="profile-picker-heading profile-results-heading">
-            <p>{filteredProfiles.length} matching {filteredProfiles.length === 1 ? 'profile' : 'profiles'}</p>
+            <p>{filteredProfiles.length} matching {filteredProfiles.length === 1 ? 'profile' : 'profiles'} · {filteredProfiles.length ? `showing ${(currentPage - 1) * profilesPerPage + 1}–${Math.min(currentPage * profilesPerPage, filteredProfiles.length)}` : 'showing 0'}</p>
           </div>
         </>}
-        {filteredProfiles.length ? <div className="profile-options">
-          {filteredProfiles.map((profile) => {
+        {orderedProfiles.length ? <>
+          <div className="profile-options">
+          {visibleProfiles.map((profile) => {
             const name = getProfileName(profile)
             const id = profile.oma_userprofileid ?? ''
             const selecting = selectingProfileId === id
+            const recentlyOpened = recentProfileIds.includes(id)
             return (
-              <article className="profile-option" key={id}>
+              <article
+                className={`profile-option${recentlyOpened ? ' profile-option-recent' : ''}${openMenuProfileId === id ? ' profile-option-menu-open' : ''}`}
+                key={id}
+                onBlur={(event) => {
+                  if (!(event.relatedTarget instanceof Node) || !event.currentTarget.contains(event.relatedTarget)) {
+                    setOpenMenuProfileId('')
+                  }
+                }}
+              >
                 <button
                   className="profile-option-main"
                   type="button"
                   disabled={Boolean(selectingProfileId)}
-                  onClick={() => onSelect(profile)}
+                  onClick={() => openProfile(profile)}
                 >
                   <span className="profile-option-avatar">{getInitials(name)}</span>
-                  <span className="profile-option-copy"><strong>{name}</strong><small>{profile.oma_profilename?.trim() || 'Dataverse finance profile'}</small></span>
+                  <span className="profile-option-copy">
+                    <strong>{name}</strong>
+                    <small>{profile.oma_profilename?.trim() || 'Dataverse finance profile'}</small>
+                    {recentlyOpened && <span className="profile-recent-badge">Recently opened</span>}
+                  </span>
                   <span className="profile-option-action">{selecting ? 'Opening…' : 'Open'}</span>
                 </button>
-                <div className="profile-option-actions">
-                  <button type="button" disabled={Boolean(selectingProfileId)} onClick={() => openEditor(profile)}>Edit</button>
-                  <button type="button" className="profile-delete-action" disabled={Boolean(selectingProfileId)} onClick={() => { setDeletingProfile(profile); setDeleteError(''); setDeleteAcknowledged(false) }}>Delete</button>
+                <div className="profile-option-menu">
+                  <button
+                    type="button"
+                    className="profile-option-menu-trigger"
+                    aria-label={`More actions for ${name}`}
+                    aria-haspopup="menu"
+                    aria-expanded={openMenuProfileId === id}
+                    disabled={Boolean(selectingProfileId)}
+                    onClick={() => setOpenMenuProfileId((current) => current === id ? '' : id)}
+                  >
+                    <span aria-hidden="true">⋮</span>
+                  </button>
+                  {openMenuProfileId === id && <div className="profile-option-menu-popup" role="menu" aria-label={`${name} actions`}>
+                    <button type="button" role="menuitem" onClick={() => { setOpenMenuProfileId(''); openEditor(profile) }}>Edit profile</button>
+                    <button type="button" role="menuitem" className="profile-delete-action" onClick={() => {
+                      setOpenMenuProfileId('')
+                      setDeletingProfile(profile)
+                      setDeleteError('')
+                      setDeleteAcknowledged(false)
+                    }}>Delete profile</button>
+                  </div>}
                 </div>
               </article>
             )
           })}
-        </div> : profiles.length ? (
+        </div>
+        {pageCount > 1 && <nav className="profile-pagination" aria-label="Profile pages">
+          <span>Page {currentPage} of {pageCount}</span>
+          <div>
+            <button type="button" disabled={currentPage <= 1} onClick={() => setPage((current) => Math.max(1, current - 1))}>Previous</button>
+            <button type="button" disabled={currentPage >= pageCount} onClick={() => setPage((current) => Math.min(pageCount, current + 1))}>Next</button>
+          </div>
+        </nav>}
+        </> : profiles.length ? (
           <p className="profile-no-results">No profiles match “{search.trim()}”. Try a different name.</p>
         ) : (
           <p className="profile-selection-empty">No profiles yet. Add a profile to get started.</p>

@@ -36,6 +36,7 @@ function errorMessage(error: unknown) {
 function App() {
   const [page, setPage] = useState<'overview' | 'transactions' | 'budgets' | 'accounts' | 'savings' | 'investments' | 'reports'>('overview')
   const [profiles, setProfiles] = useState<UserProfile[]>([])
+  const [recentProfileIds, setRecentProfileIds] = useState<string[]>([])
   const [profilesLoaded, setProfilesLoaded] = useState(false)
   const [selectedProfile, setSelectedProfile] = useState<UserProfile | null>(null)
   const [data, setData] = useState<OverviewData | null>(null)
@@ -96,6 +97,13 @@ function App() {
   }, [selectedProfile])
 
   const selectProfile = useCallback((profile: UserProfile) => {
+    const profileId = profile.oma_userprofileid
+    if (profileId) {
+      setRecentProfileIds((current) => [
+        profileId,
+        ...current.filter((id) => id !== profileId),
+      ].slice(0, 20))
+    }
     setData(null)
     setError('')
     setSelectingProfileId(profile.oma_userprofileid ?? '')
@@ -185,6 +193,7 @@ function App() {
       ) : (
         <ProfileSelection
           profiles={profiles}
+          recentProfileIds={recentProfileIds}
           onSelect={selectProfile}
           onSaveProfile={saveProfile}
           onDeleteProfile={deleteProfile}
