@@ -213,27 +213,6 @@ export function ProfileSelection({
                       setDeleteAcknowledged(false)
                     }}>Delete profile</button>
                   </div>}
-                <div className="profile-option-menu">
-                  <button
-                    type="button"
-                    className="profile-option-menu-trigger"
-                    aria-label={`More actions for ${name}`}
-                    aria-haspopup="menu"
-                    aria-expanded={openMenuProfileId === id}
-                    disabled={Boolean(selectingProfileId)}
-                    onClick={() => setOpenMenuProfileId((current) => current === id ? '' : id)}
-                  >
-                    <span aria-hidden="true">⋮</span>
-                  </button>
-                  {openMenuProfileId === id && <div className="profile-option-menu-popup" role="menu" aria-label={`${name} actions`}>
-                    <button type="button" role="menuitem" onClick={() => { setOpenMenuProfileId(''); openEditor(profile) }}>Edit profile</button>
-                    <button type="button" role="menuitem" className="profile-delete-action" onClick={() => {
-                      setOpenMenuProfileId('')
-                      setDeletingProfile(profile)
-                      setDeleteError('')
-                      setDeleteAcknowledged(false)
-                    }}>Delete profile</button>
-                  </div>}
                 </div>
               </article>
             )
