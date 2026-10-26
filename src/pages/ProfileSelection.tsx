@@ -144,7 +144,6 @@ export function ProfileSelection({
       <section className="profile-picker" aria-label="Finance profile management">
         <div className="profile-picker-heading">
           <div><h2>Your profiles</h2><p>{profiles.length} {profiles.length === 1 ? 'profile' : 'profiles'} available</p></div>
-          <button className="button-primary profile-add-button" type="button" disabled={Boolean(selectingProfileId)} onClick={() => openEditor(null)}>Add profile</button>
         </div>
         {profiles.length > 0 && <>
           <label className="profile-search">
@@ -193,6 +192,27 @@ export function ProfileSelection({
                   </span>
                   <span className="profile-option-action">{selecting ? 'Opening…' : 'Open'}</span>
                 </button>
+                <div className="profile-option-menu">
+                  <button
+                    type="button"
+                    className="profile-option-menu-trigger"
+                    aria-label={`More actions for ${name}`}
+                    aria-haspopup="menu"
+                    aria-expanded={openMenuProfileId === id}
+                    disabled={Boolean(selectingProfileId)}
+                    onClick={() => setOpenMenuProfileId((current) => current === id ? '' : id)}
+                  >
+                    <span aria-hidden="true">⋮</span>
+                  </button>
+                  {openMenuProfileId === id && <div className="profile-option-menu-popup" role="menu" aria-label={`${name} actions`}>
+                    <button type="button" role="menuitem" onClick={() => { setOpenMenuProfileId(''); openEditor(profile) }}>Edit profile</button>
+                    <button type="button" role="menuitem" className="profile-delete-action" onClick={() => {
+                      setOpenMenuProfileId('')
+                      setDeletingProfile(profile)
+                      setDeleteError('')
+                      setDeleteAcknowledged(false)
+                    }}>Delete profile</button>
+                  </div>}
                 <div className="profile-option-menu">
                   <button
                     type="button"
